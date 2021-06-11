@@ -26,10 +26,10 @@ func (app App) GetUppercaseName() string {
 }
 
 const (
-	CONTAIN = "10.20.41.11"
+	CONTAIN = ""
 	START = "\""
 	END = "\""
-	REPLACE="10.20.34.140:9092,10.20.34.145:9092,10.20.34.150:9092,10.20.34.73:9092,10.20.34.76:9092,10.20.42.79:9092"
+	REPLACE=""
 	FILE_NAME_START=""
 	FILE_NAME_END = "conf"
 	DEFAULT_DIR = "/etc/logstash"
