@@ -33,6 +33,7 @@ const (
 	FILE_NAME_START=""
 	FILE_NAME_END = "conf"
 	DEFAULT_DIR = "/etc/logstash"
+	//DEFAULT_DIR = "/Users/yangsongbai/workspace/github/file-replace/config"
 )
 
 func (app *App) parseFlag()*config.Config	{
@@ -47,6 +48,7 @@ func (app *App) parseFlag()*config.Config	{
 	flag.StringVar(&config.FileInfo.Start, "file_name_start", "", "文件名以什么开头")
 	flag.StringVar(&config.FileInfo.End, "file_name_end", FILE_NAME_END, "文件名以什么结尾")
 	flag.StringVar(&config.FileInfo.Dir, "dir", DEFAULT_DIR, "扫描的目录")
+	flag.BoolVar(&config.FileInfo.Recursion, "recursion", true, "是否递归扫描")
 
 	flag.Parse()
 	return config
@@ -61,5 +63,6 @@ func (app *App) Init(setUp func()(), check func()) {
 }
 
 func (app App) Start() {
+	tools.ReplaceFile()
 
 }

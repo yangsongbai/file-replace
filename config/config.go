@@ -7,7 +7,7 @@ type ReplaceInfo struct {
 	Replace       string     `json:"replace,omitempty"`
 }
 
-type FileInfo struct {
+type FileMatchInfo struct {
 	Contain       string      `json:"contain,omitempty"`
 	Start         string      `json:"start,omitempty"`
 	End           string      `json:"end,omitempty"`
@@ -15,6 +15,7 @@ type FileInfo struct {
 	SubDir        string     `json:"sub_dir,omitempty"`
 	FileSize      int64      `json:"file_size,omitempty"`
 	Error         error      `json:"error,omitempty"`
+	Recursion      bool      `json:"recursion,omitempty"`
 }
 
 var config *Config
@@ -29,18 +30,18 @@ func GetConfig() *Config  {
 
 
 type Config struct {
-	FileInfo       *FileInfo      `json:"file_info,omitempty"`
+	FileInfo       *FileMatchInfo      `json:"file_info,omitempty"`
 	ReplaceInfo    *ReplaceInfo    `json:"replace_info,omitempty"`
 }
 
 func NewConfig() *Config {
-	return &Config{FileInfo:NewFileInfo(),ReplaceInfo: NewReplaceInfo()}
+	return &Config{FileInfo:NewFileMatchInfo(),ReplaceInfo: NewReplaceInfo()}
 }
 
 func NewReplaceInfo() *ReplaceInfo {
 	return &ReplaceInfo{}
 }
 
-func NewFileInfo()*FileInfo {
-	return &FileInfo{}
+func NewFileMatchInfo()*FileMatchInfo {
+	return &FileMatchInfo{}
 }
